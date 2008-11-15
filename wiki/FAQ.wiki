@@ -41,7 +41,7 @@ From Wikipedia:
 
 ==How does Cahors work==
 
-Music for Cahors is written in the form of [http://en.wikipedia.org/wiki/Array arrays] of notes and drum patterns (the *pattern* arrays), and meta-arrays of pointers to note arrays (the *song arrangment* array). 
+Music for Cahors is written in the form of [http://en.wikipedia.org/wiki/Array arrays] of notes and drum patterns (the *pattern* arrays), and a meta-array of pointers to pattern arrays (the *song arrangment* array). 
 
 These arrays are stored in the Arduino's 16 kilobytes of flash memory (actually, only 14 kilobytes are usable, as 2KB are used by the Arduino bootloader).
 
