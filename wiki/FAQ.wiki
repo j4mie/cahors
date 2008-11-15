@@ -1,0 +1,45 @@
+#summary Frequency Asked Questions
+#labels Featured
+
+= Introduction =
+
+Frequently asked questions about Cahors.
+
+
+= Questions =
+
+*What is Cahors?*
+
+Cahors is a MIDI sequencer for the [http://www.arduinco.cc Arduino] microcontroller platform. Music is composed in code, in the form of arrays of notes and pointers to note patterns. To back play the music, the Arduino must be connected to a MIDI synthesizer.
+
+*What is Arduino?*
+
+ "Arduino is an open-source electronics prototyping platform based on flexible, easy-to-use hardware and software. It's intended for artists, designers, hobbyists, and anyone interested in creating interactive objects or environments."
+
+(Taken from the Arduino project home page. Please see http://www.arduino.cc for more information).
+
+*What is MIDI?*
+
+ "MIDI stands for Musical Instrument Digital Interface. It is an industry-standard protocol that enables electronic musical instruments, computers, and other equipment to communicate, control, and synchronize with each other. MIDI allows computers, synthesizers, MIDI controllers, sound cards, samplers and drum machines to control one another, and to exchange system data"
+
+ "MIDI does not transmit an audio signal or media — it transmits "event messages" such as the pitch and intensity of musical notes to play, control signals for parameters such as volume, vibrato and panning, cues, and clock signals to set the tempo. As an electronic protocol, it is notable for its widespread adoption throughout the industry, and for continuing in use since its introduction in 1983."
+
+(taken from Wikipedia. Please see http://en.wikipedia.org/wiki/Midi for more information).
+
+*Does Cahors play Standard MIDI File Format (.mid) files?*
+
+No. Music for Cahors is written in C code in the form of arrays of notes and note patterns. It is not compatible with the MIDI file format.
+
+*How do I write music for Cahors?*
+
+Please see this page.
+
+*How do I connect my Arduino to my MIDI synthesizer?*
+
+You'll need a MIDI connector, which is a 5-pin DIN plug. Tod E. Kurt has some instructions for making an Arduino/MIDI interface on [http://todbot.com/blog/2006/10/29/spooky-arduino-projects-4-and-musical-arduino/ his blog].
+
+This connector can be as simple as the MIDI plug, a few wires, and a resistor. Alternatively, you can get a little more ambitious and make yourself a MIDI shield:
+
+[http://www.flickr.com/photos/j4mie/2476034483/ http://farm3.static.flickr.com/2140/2476034483_2ed50b8429_m.jpg]
+
+[http://www.flickr.com/photos/j4mie/2476017883/ http://farm3.static.flickr.com/2070/2476017883_561a64113d_m.jpg]
