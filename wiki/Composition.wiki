@@ -8,6 +8,8 @@ This page will attempt to explain how music is written for Cahors.
 
 *Warning:* Cahors does not provide a particularly "nice" or natural way of writing or notating music. It fact, it's probably the least natural way of being creative that I can think of. However, I am probably not alone in finding that severely restricting the pallet of tools available for expression can sometimes be very inspiring, and can often produce completely unexpected results. Once you get the hang of it, writing for Cahors can be quite good fun.
 
+People who are used to writing electronic music with [http://en.wikipedia.org/wiki/Tracker Tracker software] will probably be most at home with Cahors. However, the process and concepts are still quite different, as Cahors deals with MIDI notes rather than samples.
+
 *Warning 2:* This guide is probably not very good. There was a significant period of time between me writing Cahors and releasing it (and writing this guide), during which time I was working on my MSc thesis and didn't use Cahors at all. So I'm a bit rusty myself. You'll probably need to have a fairly good grasp of programming to be able to make progress with Cahors anyway, and you'll benefit more from simply reading the source code and figuring out how it works. If you'd like to modify or rewrite this page to be more helpful, please feel free.
 
 = Details =
@@ -16,7 +18,7 @@ All music for Cahors should be placed in the *song.h* file. This should be the o
 
 A song is divided into *bars*, which correspond to rows in the song arrangement array. A bar is subdivided into thirty-two *ticks*. Ticks are the intervals at which your notes can start and stop. 
 
-There are two types of patterns, *drum patterns* and *melodies*. At any time during your song, one drum pattern and up to four melodies may be playing.
+There are two types of patterns, *drum patterns* and *melodies*. At any time during your song, one drum pattern and a number of melodies may be playing.
 
 == Drum Patterns ==
 
@@ -128,4 +130,34 @@ prog_uchar mel_c[][4] PROGMEM =
   };
 }}}
 
-=== The Song Arrangement Array ===
+== The Song Arrangement Array ==
+
+To put your patterns together into a full composition, pointers to each pattern are assembled in the *song arrangement array*, which is placed after the pattern definitions in *song.h*.
+
+=== Example ==
+
+Here's a simple example of a Song Arrangement Array, containing one drum pattern and three melody patterns (melody, chords and bass) with a duration of eight bars:
+
+{{{
+prog_uchar *song[][melody_count+1] PROGMEM = 
+  { //     DRUMS         | MELODY          | CHORDS            | BASS               
+
+    {  &drums_a[0][0],    &mel_a[0][0],    &empty_mel[0][0],    &bass_a[0][0],    },
+    {  &drums_a[0][0],    &mel_b[0][0],    &empty_mel[0][0],    &bass_a[0][0],    },
+    {  &drums_a[0][0],    &mel_c[0][0],    &empty_mel[0][0],    &bass_a[0][0],    },
+    {  &drums_b[0][0],    &mel_d[0][0],    &empty_mel[0][0],    &bass_a[0][0],    },
+    {  &drums_a[0][0],    &mel_a[0][0],    &chords_a[0][0],     &bass_b[0][0],    },
+    {  &drums_a[0][0],    &mel_b[0][0],    &chords_b[0][0],     &bass_b[0][0],    },
+    {  &drums_a[0][0],    &mel_c[0][0],    &chords_a[0][0],     &bass_b[0][0],    },
+    {  &drums_c[0][0],    &mel_d[0][0],    &chords_b[0][0],     &bass_b[0][0],    },
+    {  &SONGEND,          &SONGEND,        &SONGEND,            &SONGEND,         }
+  };
+}}}
+
+One row in the array corresponds to one bar (32 ticks), and can contain pointers to one drum pattern and a number of melodies. The pattern names ({{{drums_a}}} and {{{mel_d}}}} for example) correspond to your pattern names, which you have defined above. They should always start with an {{{&}}} and end with {{{[0][0]}}}}.
+
+Cahors will run down this array, one bar at a time. It will follow the pointer to each pattern it finds, and play the notes defined in that pattern. When that bar is over, it will move onto the next row in the array.
+
+== Summary ==
+
+As you can see, the process of writing music for Cahors is a little unusual and probably unfamiliar to most people. However, once you've got your head around the examples and start writing your own music, it can be pretty addictive. Have fun!
