@@ -13,7 +13,7 @@ Cahors is a MIDI sequencer for the [http://www.arduinco.cc Arduino] microcontrol
 
 Cahors is a town in southwestern France. The name of the town was usurped and used as a plural noun by Douglas Adams and John Lloyd in their book _[http://en.wikipedia.org/wiki/The_Deeper_Meaning_of_Liff The Deeper Meaning of Liff]_. It was given the following definition:
 
- "The rushes of emotion triggered by overheard snatches of an old song."
+ “The rushes of emotion triggered by overheard snatches of an old song.”
 
 ==What will I need to use Cahors?==
 
@@ -25,7 +25,7 @@ Cahors is a town in southwestern France. The name of the town was usurped and us
 
 From the Arduino project homepage: 
 
- "Arduino is an open-source electronics prototyping platform based on flexible, easy-to-use hardware and software. It's intended for artists, designers, hobbyists, and anyone interested in creating interactive objects or environments."
+ “Arduino is an open-source electronics prototyping platform based on flexible, easy-to-use hardware and software. It's intended for artists, designers, hobbyists, and anyone interested in creating interactive objects or environments.”
 
 (Please see http://www.arduino.cc for more information).
 
@@ -33,9 +33,9 @@ From the Arduino project homepage:
 
 From Wikipedia:
 
- "MIDI stands for Musical Instrument Digital Interface. It is an industry-standard protocol that enables electronic musical instruments, computers, and other equipment to communicate, control, and synchronize with each other. MIDI allows computers, synthesizers, MIDI controllers, sound cards, samplers and drum machines to control one another, and to exchange system data"
+ “MIDI stands for Musical Instrument Digital Interface. It is an industry-standard protocol that enables electronic musical instruments, computers, and other equipment to communicate, control, and synchronize with each other. MIDI allows computers, synthesizers, MIDI controllers, sound cards, samplers and drum machines to control one another, and to exchange system data”
 
- "MIDI does not transmit an audio signal or media — it transmits "event messages" such as the pitch and intensity of musical notes to play, control signals for parameters such as volume, vibrato and panning, cues, and clock signals to set the tempo. As an electronic protocol, it is notable for its widespread adoption throughout the industry, and for continuing in use since its introduction in 1983."
+ “MIDI does not transmit an audio signal or media — it transmits "event messages" such as the pitch and intensity of musical notes to play, control signals for parameters such as volume, vibrato and panning, cues, and clock signals to set the tempo. As an electronic protocol, it is notable for its widespread adoption throughout the industry, and for continuing in use since its introduction in 1983.”
 
 (Please see http://en.wikipedia.org/wiki/Midi for more information).
 
