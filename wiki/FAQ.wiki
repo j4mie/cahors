@@ -45,7 +45,7 @@ Music for Cahors is written in the form of [http://en.wikipedia.org/wiki/Array a
 
 These arrays are stored in the Arduino's 16 kilobytes of flash memory (actually, only 14 kilobytes are usable, as 2KB are used by the Arduino bootloader).
 
-The Cahors program runs through the song arrangement array, following the pointers to the note and drum patterns, and pulls the data about these patterns from the Flash memory and into the Arduino's RAM. It then triggers MIDI noteOn messages corresponding to the patterns. It also queues noteOff messages to be triggered at the correct time, depending on the duration of the note.
+The Cahors program runs through the song arrangement array, following the pointers to the note and drum patterns, and pulls the data about these patterns from the Flash memory and into the Arduino's RAM. It then triggers MIDI noteOn messages corresponding to the notes in these patterns. It also queues noteOff messages to be triggered at the correct time, depending on the duration of the note.
 
 ==How do I write music for Cahors?==
 
