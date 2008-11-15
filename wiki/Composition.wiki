@@ -10,7 +10,7 @@ This page will attempt to explain how music is written for Cahors.
 
 *Warning:* Cahors does not provide a particularly "nice" or natural way of writing or notating music. It fact, it's probably the least natural way of being creative that I can think of. However, I am probably not alone in finding that severely restricting the pallet of tools available for expression can sometimes be very inspiring, and can often produce completely unexpected results. Once you get the hang of it, writing for Cahors can be quite good fun.
 
-People who are used to writing electronic music with [http://en.wikipedia.org/wiki/Tracker Tracker software] will probably be most at home with Cahors. However, the process and concepts are still quite different, as Cahors deals with MIDI notes rather than samples.
+People who are used to creating electronic music with [http://en.wikipedia.org/wiki/Tracker Tracker software] will probably be most at home with Cahors. However, the process and concepts are still quite different, as Cahors deals with MIDI notes rather than samples.
 
 *Warning 2:* This guide is probably not very good. There was a significant period of time between me writing Cahors and releasing it (and writing this guide), during which time I was working on my MSc thesis and didn't use Cahors at all. So I'm a bit rusty myself. You'll probably need to have a fairly good grasp of programming to be able to make progress with Cahors anyway, and you'll benefit more from simply reading the source code and figuring out how it works. If you'd like to modify or rewrite this page to be more helpful, please feel free.
 
