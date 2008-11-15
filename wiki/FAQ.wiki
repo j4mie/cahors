@@ -1,11 +1,6 @@
 #summary Frequency Asked Questions
 #labels Featured
 
-= Introduction =
-
-Frequently asked questions about Cahors.
-
-
 = Questions =
 
 *What is Cahors?*
