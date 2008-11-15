@@ -87,7 +87,7 @@ The simplest melody pattern is one which defines a single note, and looks like t
 prog_uchar mel_a[][4] PROGMEM = 
   {
     {  0,  C+oct5, 100,  64 },
-    {  END, END, END, END}
+    {  END, END, END, END }
   };
 }}}
 
