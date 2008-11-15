@@ -1,5 +1,7 @@
 #summary How to write music for Cahors
 
+<wiki:toc max_depth="3" />
+
 = Introduction =
 
 This page will attempt to explain how music is written for Cahors.
