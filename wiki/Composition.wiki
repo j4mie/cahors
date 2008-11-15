@@ -67,4 +67,65 @@ prog_uchar pat2[4][7] PROGMEM =
   };
 }}}
 
-The first column is the shorthand for the note which you will {{{#define}}} at the top of the *song.h* file.
+The first column is the shorthand for the note which you will {{{#define}}} at the top of the *song.h* file. The second column is the MIDI velocity, or volume, at which you want the pattern to be played. The third column is the duration (in ticks) of each note. And the final four columns are the patterns themselves in hexadecimal format, one byte to eight ticks.
+
+== Melody Patterns ==
+
+The other type of pattern which you can use in your Cahors composition is a *melody* pattern. In fact, this are used to create basslines and chords as well as melodies.
+
+The best way to explain the structure of the melody patterns is to provide some simple examples.
+
+=== Single note ===
+
+The simplest melody pattern is one which defines a single note, and looks like this:
+
+{{{
+prog_uchar mel_a[][4] PROGMEM = 
+  {
+    {  0,  C+oct5, 100,  64 },
+    {  END,END,    END,  END}
+  };
+}}}
+
+{{{mel_a}}} is the name by which the pattern will be referred to in the Song Arrangement Array, which will be discussed below. It might be sensible to give it a descriptive name, like {{{chorus_melody}}}, for example.
+
+The first column, which contains a zero in this example, is the tick at which you want the note to start. Zero means at the beginning of the bar, 16 would be half way through the bar, and so on.
+
+The second column is the note itself. Have a look in the file *util.h* which is part of Cahors. It contains shorthands for the MIDI note numbers which you can use in your compositions. C is the note itself (if you want a sharp, append a lowercase 's' to the note name eg: Cs). Added to this is the octave, with oct0 being the lowest in the MIDI specification. So C+oct5 is translated into 0+60, which plays MIDI note 60, which happens to be Middle C.
+
+The third column is the MIDI note velocity, or how hard the note is struck. It is in the range zero (silence) to 127.
+
+The fourth column is the duration of the note, in ticks (or 1/32nds of a bar). So this Middle C note, with a duration of 64 ticks, will last for two bars. You don't have to wait for a note to finish before you start playing another note: each note is added to a queue and dealt with asynchronously.
+
+Your melody pattern should always finish with a row that looks like {{{ {  END, END, END, END} }}}, to tell Cahors that it shouldn't look for any more notes in the pattern.
+
+=== Multi-note melodies ===
+
+To create a melody, add more notes with later starting points:
+
+{{{
+prog_uchar mel_n[][4] PROGMEM = 
+  {
+    {  0,  G+oct4, 120, 4},
+    {  8,  A+oct4, 120, 4},
+    {  16, E+oct4, 120, 4},
+    {  24, F+oct4, 120, 4},
+    {  END, END, END, END}
+  };
+}}}
+
+=== Chords ===
+
+To play a chord, simply play different notes with the same starting tick:
+
+{{{
+prog_uchar mel_c[][4] PROGMEM = 
+  {
+    {  0,  C+oct3, 100,  64 },
+    {  0,  E+oct3, 100,  64 },
+    {  0,  G+oct3, 100,  64 },
+    {  END, END, END, END}
+  };
+}}}
+
+=== The Song Arrangement Array ===
