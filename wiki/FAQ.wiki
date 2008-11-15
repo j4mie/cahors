@@ -3,33 +3,50 @@
 
 = Questions =
 
-*What is Cahors?*
+<wiki:toc max_depth="2" />
+
+==What is Cahors?==
 
 Cahors is a MIDI sequencer for the [http://www.arduinco.cc Arduino] microcontroller platform. Music is composed in code, in the form of arrays of notes and pointers to note patterns. To back play the music, the Arduino must be connected to a MIDI synthesizer.
 
-*What is Arduino?*
+==What will I need to use Cahors?==
+
+ * An Arduino board and the Arduino software for Mac, Linux or Windows.
+ * A MIDI synthesizer of some kind, which understands the [http://en.wikipedia.org/wiki/General_Midi General MIDI] specification. Either a keyboard with MIDI inputs, a dedicated synthesizer unit, or any other crazy device that accepts MIDI input.
+ * A way of connecting your Arduino to your synthesizer. See [#connect below].
+
+==What is Arduino?==
+
+From the Arduino project homepage: 
 
  "Arduino is an open-source electronics prototyping platform based on flexible, easy-to-use hardware and software. It's intended for artists, designers, hobbyists, and anyone interested in creating interactive objects or environments."
 
-(Taken from the Arduino project home page. Please see http://www.arduino.cc for more information).
+(Please see http://www.arduino.cc for more information).
 
-*What is MIDI?*
+==What is MIDI?==
+
+From Wikipedia:
 
  "MIDI stands for Musical Instrument Digital Interface. It is an industry-standard protocol that enables electronic musical instruments, computers, and other equipment to communicate, control, and synchronize with each other. MIDI allows computers, synthesizers, MIDI controllers, sound cards, samplers and drum machines to control one another, and to exchange system data"
 
  "MIDI does not transmit an audio signal or media — it transmits "event messages" such as the pitch and intensity of musical notes to play, control signals for parameters such as volume, vibrato and panning, cues, and clock signals to set the tempo. As an electronic protocol, it is notable for its widespread adoption throughout the industry, and for continuing in use since its introduction in 1983."
 
-(taken from Wikipedia. Please see http://en.wikipedia.org/wiki/Midi for more information).
+(Please see http://en.wikipedia.org/wiki/Midi for more information).
 
-*Does Cahors play Standard MIDI File Format (.mid) files?*
+==How does Cahors work==
 
-No. Music for Cahors is written in C code in the form of arrays of notes and note patterns. It is not compatible with the MIDI file format.
+Music for Cahors is written in the form of [http://en.wikipedia.org/wiki/Array arrays] of notes and drum patterns (the *pattern* arrays), and meta-arrays of pointers to note arrays (the *song arrangment* array). 
 
-*How do I write music for Cahors?*
+These arrays are stored in the Arduino's 16 kilobytes of flash memory (actually, only 14 kilobytes are usable, as 2KB are used by the Arduino bootloader).
 
-Please see this page.
+The Cahors program runs through the song arrangement array, following the pointers to the note and drum patterns, and pulls the data about these patterns from the Flash memory and into the Arduino's RAM. It then triggers MIDI noteOn messages corresponding to the patterns. It also queues noteOff messages to be triggered at the correct time, depending on the duration of the note.
 
-*How do I connect my Arduino to my MIDI synthesizer?*
+==How do I write music for Cahors?==
+
+Please see the [Composition] page.
+
+[[#connect]]
+==How do I connect my Arduino to my MIDI synthesizer?==
 
 You'll need a MIDI connector, which is a 5-pin DIN plug. Tod E. Kurt has some instructions for making an Arduino/MIDI interface on [http://todbot.com/blog/2006/10/29/spooky-arduino-projects-4-and-musical-arduino/ his blog].
 
@@ -38,3 +55,18 @@ This connector can be as simple as the MIDI plug, a few wires, and a resistor. A
 [http://www.flickr.com/photos/j4mie/2476034483/ http://farm3.static.flickr.com/2140/2476034483_2ed50b8429_m.jpg]
 
 [http://www.flickr.com/photos/j4mie/2476017883/ http://farm3.static.flickr.com/2070/2476017883_561a64113d_m.jpg]
+
+==Does Cahors play Standard MIDI File Format (.mid) files?==
+
+No. Music for Cahors is written in C code in the form of arrays of notes and note patterns. It is not compatible with the MIDI file format.
+
+
+== Why doesn't the output from my synthesizer sound like the example MP3?==
+
+Different MIDI synthesizers will have different voices and different interpretations of the MIDI standard. It's probably a good idea to pick a synthesizer, and use the same one to compose, record and perform your music. Music that sounds great on one synthesizer may sound terrible on a different one. Your mileage may vary.
+
+==What synthesizer was used to create the sample MP3 track?==
+
+A Yahama MU-5 Tone Generator.
+
+[http://www.flickr.com/photos/j4mie/2495344322/ http://farm3.static.flickr.com/2294/2495344322_ce7b65b078_m.jpg]
