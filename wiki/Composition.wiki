@@ -37,9 +37,9 @@ R-R-R-R-R-R-R-R-
 ----S--S-S--S--S
 K-K-------KK----
 </pre>
+R : Ride cymbal<br />
+S : Snare drum<br />
 K : Kick
-<br />R : Ride cymbal
-<br />S : Snare drum
 
 (taken from Wikipedia).
 
