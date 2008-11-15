@@ -19,7 +19,7 @@ Cahors is a town in southwestern France. The name of the town was usurped and us
 
  * An Arduino board and the Arduino software for Mac, Linux or Windows.
  * A MIDI synthesizer of some kind, which understands the [http://en.wikipedia.org/wiki/General_Midi General MIDI] specification. Either a keyboard with MIDI inputs, a dedicated synthesizer unit, or any other crazy device that accepts MIDI input.
- * A way of connecting your Arduino to your synthesizer. See [#connect below].
+ * A way of connecting your Arduino to your synthesizer. See [http://code.google.com/p/cahors/wiki/FAQ#How_do_I_connect_my_Arduino_to_my_MIDI_synthesizer? below].
 
 ==What is Arduino?==
 
@@ -51,7 +51,6 @@ The Cahors program runs through the song arrangement array, following the pointe
 
 Please see the [Composition] page.
 
-[[#connect]]
 ==How do I connect my Arduino to my MIDI synthesizer?==
 
 You'll need a MIDI connector, which is a 5-pin DIN plug. Tod E. Kurt has some instructions for making an Arduino/MIDI interface on [http://todbot.com/blog/2006/10/29/spooky-arduino-projects-4-and-musical-arduino/ his blog].
