@@ -1,0 +1,70 @@
+#summary How to write music for Cahors
+
+= Introduction =
+
+This page will attempt to explain how music is written for Cahors.
+
+*The main Cahors download comes with a sample composition called _cerealdata_. The best way to learn is to have a look at it, play with it, change it, and try to figure out how it works.*
+
+*Warning:* Cahors does not provide a particularly "nice" or natural way of writing or notating music. It fact, it's probably the least natural way of being creative that I can think of. However, I am probably not alone in finding that severely restricting the pallet of tools available for expression can sometimes be very inspiring, and can often produce completely unexpected results. Once you get the hang of it, writing for Cahors can be quite good fun.
+
+*Warning 2:* This guide is probably not very good. There was a significant period of time between me writing Cahors and releasing it (and writing this guide), during which time I was working on my MSc thesis and didn't use Cahors at all. So I'm a bit rusty myself. You'll probably need to have a fairly good grasp of programming to be able to make progress with Cahors anyway, and you'll benefit more from simply reading the source code and figuring out how it works. If you'd like to modify or rewrite this page to be more helpful, please feel free.
+
+= Details =
+
+All music for Cahors should be placed in the *song.h* file. This should be the only file you need to change in order to write music for Cahors, unless you want to change how the sequencer itself works. This file contains arrays of song data (patterns), and a master array of pointers to these patterns, from which the complete song is assembled.
+
+A song is divided into *bars*, which correspond to rows in the song arrangement array. A bar is subdivided into thirty-two *ticks*. Ticks are the intervals at which your notes can start and stop. 
+
+There are two types of patterns, *drum patterns* and *melodies*. At any time during your song, one drum pattern and up to four melodies may be playing.
+
+== Drum Patterns ==
+
+Each drum pattern can involve up to four drums. Drums are usually mapped to General MIDI channel 9, and different notes on that channel correspond to different drums.
+
+Drum patterns are represented in a binary format. At each tick in a bar, a particular drum may either be hit or not hit (1 or 0). This is similar to the way [http://en.wikipedia.org/wiki/Drum_tab drum tablature] works. The main difference in Cahors is that each bar is divided into 32 'ticks', so there are 32 bits of information to store per drum per bar.
+
+To illustrate this, let's convert the famous [http://en.wikipedia.org/wiki/Amen_break Amen break] into a Cahors drum pattern.
+
+Tablature for this drum pattern looks like this:
+
+<pre>
+R-R-R-R-R-R-R-R-
+----S--S-S--S--S
+K-K-------KK----
+</pre>
+K : Kick
+<br />R : Ride cymbal
+<br />S : Snare drum
+
+(taken from Wikipedia).
+
+Here, the bar is divided into only 16 beats. So we must "fill in the gaps" with more zeroes to make up the full 32:
+
+<pre>
+R: 10001000 10001000 10001000 10001000
+S: 00000000 10000010 00100000 10000010
+K: 10001000 00000000 00001010 00000000
+</pre>
+
+Now, to make this easier to write, we use [http://en.wikipedia.org/wiki/Hexadecimal hexadecimal] notation:
+
+<pre>
+R: 0x88 0x88 0x88 0x88
+S: 0x00 0x82 0x20 0x82
+K: 0x88 0x08 0x0a 0x00
+</pre>
+
+This is then converted into a Cahors pattern which looks like this:
+
+{{{
+prog_uchar pat2[4][7] PROGMEM =
+  { 
+   
+    {  note_ride,   100,  1,  0x88,  0x88,  0x88,  0x88  },
+    {  note_snare,  100,  1,  0x00,  0x82,  0x20,  0x82  },
+    {  note_kick,   100,  1,  0x88,  0x08,  0x0a,  0x00  },
+  };
+}}}
+
+The first column is the shorthand for the note which you will {{{#define}}} at the top of the *song.h* file.
