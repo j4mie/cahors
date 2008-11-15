@@ -101,7 +101,7 @@ The third column is the MIDI note velocity, or how hard the note is struck. It i
 
 The fourth column is the duration of the note, in ticks (or 1/32nds of a bar). So this Middle C note, with a duration of 64 ticks, will last for two bars. You don't have to wait for a note to finish before you start playing another note: each note is added to a queue and dealt with asynchronously.
 
-Your melody pattern should always finish with a row that looks like {{{ {  END, END, END, END} }}}, to tell Cahors that it shouldn't look for any more notes in the pattern.
+Your melody pattern should always finish with a row that looks like {{{ { END, END, END, END } }}}, to tell Cahors that it shouldn't look for any more notes in the pattern.
 
 === Multi-note melodies ===
 
