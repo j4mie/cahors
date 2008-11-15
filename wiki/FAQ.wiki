@@ -9,6 +9,12 @@
 
 Cahors is a MIDI sequencer for the [http://www.arduinco.cc Arduino] microcontroller platform. Music is composed in code, in the form of arrays of notes and pointers to note patterns. To back play the music, the Arduino must be connected to a MIDI synthesizer.
 
+==Where did the name come from?==
+
+Cahors is a town in southwestern France. The name of the town was usurped and used as a plural noun by Douglas Adams and John Lloyd in their book [http://en.wikipedia.org/wiki/The_Deeper_Meaning_of_Liff _The Deeper Meaning of Liff_]. It was given the following definition:
+
+ "The rushes of emotion triggered by overheard snatches of an old song."
+
 ==What will I need to use Cahors?==
 
  * An Arduino board and the Arduino software for Mac, Linux or Windows.
