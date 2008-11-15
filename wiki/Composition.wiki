@@ -110,11 +110,11 @@ To create a melody, add more notes with later starting points:
 {{{
 prog_uchar mel_n[][4] PROGMEM = 
   {
-    {  0,  G+oct4, 120, 4},
-    {  8,  A+oct4, 120, 4},
-    {  16, E+oct4, 120, 4},
-    {  24, F+oct4, 120, 4},
-    {  END, END, END, END}
+    {  0,  G+oct4, 120, 4 },
+    {  8,  A+oct4, 120, 4 },
+    {  16, E+oct4, 120, 4 },
+    {  24, F+oct4, 120, 4 },
+    {  END, END, END, END }
   };
 }}}
 
