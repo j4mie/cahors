@@ -156,7 +156,7 @@ prog_uchar *song[][melody_count+1] PROGMEM =
   };
 }}}
 
-One row in the array corresponds to one bar (32 ticks), and can contain pointers to one drum pattern and a number of melodies. The pattern names ({{{drums_a}}} and {{{mel_d}}}} for example) correspond to your pattern names, which you have defined above. They should always start with an {{{&}}} and end with {{{[0][0]}}}}.
+One row in the array corresponds to one bar (32 ticks), and can contain pointers to one drum pattern and a number of melodies. The pattern names ({{{drums_a}}} and {{{mel_d}}}} for example) correspond to your pattern names, which you have defined above. They should always start with an {{{&}}} and end with {{{[0][0]}}}).
 
 Cahors will run down this array, one bar at a time. It will follow the pointer to each pattern it finds, and play the notes defined in that pattern. When that bar is over, it will move onto the next row in the array.
 
